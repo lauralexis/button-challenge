@@ -1,0 +1,13 @@
+.button {
+	border-radius: 35px;
+	padding: 10px 20px;
+	border: 3px solid $accent-blue;
+	margin: 15px 30px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: 700;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s;
+}

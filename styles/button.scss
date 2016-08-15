@@ -1,45 +1,25 @@
 // TODO: DEFINE YOUR BUTTON STYLES HERE
 
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
-$secondary-color: #222;
-$light-color: #fff;
+@import 'colors';
+@import 'animations';
+@import 'elements';
 
-@keyframes shake {
-	0%, 100% {transform: translateX(0);}
-	10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
-	20%, 40%, 60%, 80% {transform: translateX(10px);}
-}
-@keyframes scaleFromUp {
-	0% {transform: scale(0); opacity: 0;}
-	50% {transform: scale(0.3); opacity: 0.3}
-	100% {opacity: 1; transform: scale(1);}
-}
+$font-stack: Helvetica, sans-serif;
 
 #new-button {
 
 }
 
-
-.button {
-	border: none;
-	border-radius: 3px;
-	padding: 25px 80px;
-	margin: 15px 30px;
-	font-family: $font-stack;
-	font-size: 16px;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	font-weight: 400;
-	outline: none;
-	transition: all 0.3s;
-}
-
 .btn {
 	@extend .button;
-	background-color: $primary-color;
+	font-family: $font-stack;
+	background-color: $accent-blue;
 	color: $light-color;
-	width: 300px;
+	width: 220px;
+	&:hover {
+		color: $accent-blue;
+		background-color: $light-color;
+	}
 
 }
 
@@ -51,16 +31,17 @@ $light-color: #fff;
 	&:after {
 		content: "Error!";
 		animation: scaleFromUp 0.5s;
+		color: $error-red;
 	}
 }
 
 .disabled {
-	opacity: 0.4;
-  background: repeating-linear-gradient(
-    -55deg,
-    $secondary-color,
-    $secondary-color 5px,
-    $primary-color 5px,
-    $primary-color 10px
-  );
+	cursor: auto;
+	color: $disabled-color;
+	background: $primary-color;
+	border-color: $primary-color;
+  	&:hover {
+  		color: $disabled-color;
+  		background: $primary-color;
+  	}
 }
