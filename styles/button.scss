@@ -39,6 +39,11 @@
 	}
 }
 
+@mixin disabled-style {
+	color: $disabled-color;
+  	background: $gray;
+}
+
 .btn {
 	@include button(220px, $gust-blue, $white)
 }
@@ -56,13 +61,11 @@
 }
 
 .disabled {
-	cursor: auto;
-	color: $disabled-color;
-	background: $gray;
+	@include disabled-style;
 	border-color: $gray;
+	cursor: auto;
   	&:hover {
-  		color: $disabled-color;
-  		background: $gray;
+  		@include disabled-style;
   	}
   	span {
   		&:after {
