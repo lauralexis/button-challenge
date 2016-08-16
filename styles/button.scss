@@ -1,26 +1,46 @@
 // TODO: DEFINE YOUR BUTTON STYLES HERE
-
+@import 'fonts';
 @import 'colors';
 @import 'animations';
-@import 'elements';
 
-$font-stack: Helvetica, sans-serif;
+@mixin button-font {
+	font-family: $font-stack;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: 700;
+}
 
-#new-button {
-
+@mixin button($size, $accent-color, $primary-color) {
+	@include button-font;
+	color: $primary-color;
+	background-color: $accent-color;
+	width: $size;
+	border: 3px solid $accent-color;
+	border-radius: 35px;
+	padding: 10px 20px;
+	margin: 15px 30px;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.3s;
+	&:hover {
+		color: $accent-color;
+		background-color: $primary-color;
+	}
+	span {
+		&:after {
+			font-family: $icon-font;
+			font-size: 18px;
+			content: '\E315';
+			position: fixed;
+			margin: -1px 0 0 14px;
+			animation: bounce 2s infinite;
+		}	
+	}
 }
 
 .btn {
-	@extend .button;
-	font-family: $font-stack;
-	background-color: $accent-blue;
-	color: $light-color;
-	width: 220px;
-	&:hover {
-		color: $accent-blue;
-		background-color: $light-color;
-	}
-
+	@include button(220px, $gust-blue, $white)
 }
 
 .error {
@@ -38,10 +58,17 @@ $font-stack: Helvetica, sans-serif;
 .disabled {
 	cursor: auto;
 	color: $disabled-color;
-	background: $primary-color;
-	border-color: $primary-color;
+	background: $gray;
+	border-color: $gray;
   	&:hover {
   		color: $disabled-color;
-  		background: $primary-color;
+  		background: $gray;
+  	}
+  	span {
+  		&:after {
+  			opacity: 0.9;
+  			animation: none;
+  			margin-left: 4px;
+  		}
   	}
 }
